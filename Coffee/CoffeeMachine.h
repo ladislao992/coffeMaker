@@ -11,13 +11,13 @@ class CoffeeMachine : public ICoffeeMachine
 {
 public:
 	CoffeeMachine(int water, int sugar, int milk, int coffee);
-	bool MakeDrink(/*const std::string& name*/) override;
+	bool MakeDrink() override;
 	bool ChekIngredientLowLvl(int, int, int, int) override;
 	int AddWater(int)override;
 	int AddSugar(int)override;
 	int AddMilk(int)override;
 	int AddCoffee(int)override;
-	void SetNewRecipe(std::string& name, int water, int sugar, int coffee, int t, int time, int milk)override;
+	void SetNewRecipe()override;
 private:
 	CoffeeMachineRecipe m_recipe;
 

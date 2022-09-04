@@ -25,7 +25,7 @@ size_t CoffeeMachineRecipe::GetSize() {
 	return m_recipes.size();
 
 }
-	void CoffeeMachineRecipe::Set(std::string & name, int water, int sugar, int coffee, int t, int time, int milk)
+	void CoffeeMachineRecipe::Set(std::string& name, int water, int sugar, int coffee, int t, int time, int milk)
 {
 		m_recipes.push_back(Recipe{ name,water,sugar, coffee,t, time, milk });
 		std::cout << "Set recipe done.\n";

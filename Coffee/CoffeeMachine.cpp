@@ -73,7 +73,7 @@ bool CoffeeMachine::ChekIngredientLowLvl(int water, int sugar, int milk, int cof
 	return res;
 }
 
-bool CoffeeMachine::MakeDrink(/*const std::string& name*/) {
+bool CoffeeMachine::MakeDrink() {
 	std::string name;
 	int num;
 	for (int i = 1; i <= m_recipe.GetSize(); ++i) {
@@ -81,7 +81,7 @@ bool CoffeeMachine::MakeDrink(/*const std::string& name*/) {
 	}	
 	std::cin >> num;
 	if (num > m_recipe.GetSize()) {
-		throw std::runtime_error("Incorrect input");
+		throw std::runtime_error("Sorry.Incorrect input");
 	}
 
   name = m_recipe.GetName(num);
@@ -97,7 +97,28 @@ bool CoffeeMachine::MakeDrink(/*const std::string& name*/) {
 	}
 	return res;
 }
-void CoffeeMachine::SetNewRecipe(std::string& name, int water, int sugar, int coffee, int t, int time, int milk) {
+void CoffeeMachine::SetNewRecipe() {
+	std::cout << "Enter new recipe name:";
+	std::string name;
+	std::cin >> name;
+	int water;
+	std::cout << "enter water val:";
+	std::cin >> water;
+	int sugar;
+	std::cout << "enter sugar val:";
+	std::cin >> sugar;
+	int coffee;
+	std::cout << "enter coffee val:";
+	std::cin >> coffee;
+	int t;
+	std::cout << "enter t:";
+	std::cin >> t;
+	int time;
+	std::cout << "enter time:";
+	std::cin >> time;
+	int milk;
+	std::cout << "enter milk val:";
+	std::cin >> milk;
 	m_recipe.Set(name, water, sugar, coffee, t, time, milk);
 }
 int AddIngredient(int volumeToAdd, int& curIngridientVolume, int max) {
