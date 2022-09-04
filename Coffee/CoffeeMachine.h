@@ -18,6 +18,7 @@ public:
 	int AddMilk(int)override;
 	int AddCoffee(int)override;
 	void SetNewRecipe()override;
+	//void Delete();
 private:
 	CoffeeMachineRecipe m_recipe;
 
@@ -29,7 +30,7 @@ private:
 	//water lvl
 	const IngridientsLevel m_watterLevel = { 0, 150, 1000 };
 	//sugar lvl
-	const IngridientsLevel m_sugarLevel = { 0, 100, 800};
+	const IngridientsLevel m_sugarLevel = { 0, 100, 800 };
 	//milk lvl
 	const IngridientsLevel m_milkLevel = { 0, 0, 300 };
 	//coffee lvl

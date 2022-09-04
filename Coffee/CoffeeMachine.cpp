@@ -2,7 +2,7 @@
 #include "CoffeeMachine.h"
 #include "CoffeeMachineRecipe.h"
 
-CoffeeMachine::CoffeeMachine(int water, int sugar, int milk, int coffee):
+CoffeeMachine::CoffeeMachine(int water, int sugar, int milk, int coffee) :
 	m_curWater(water),
 	m_curSugar(sugar),
 	m_curMilk(milk),
@@ -10,7 +10,7 @@ CoffeeMachine::CoffeeMachine(int water, int sugar, int milk, int coffee):
 {
 	if (m_curWater <= m_watterLevel.m_min || m_curValCoffee <= m_coffeeLevel.m_min) {
 		std::cout << "chek lvl of water and coffee";
-	}	
+	}
 
 }
 bool CoffeeMachine::ChekIngredientLowLvl(int water, int sugar, int milk, int coffee) {
@@ -22,13 +22,13 @@ bool CoffeeMachine::ChekIngredientLowLvl(int water, int sugar, int milk, int cof
 			std::cout << "Please enter water value to add:";
 			int add;
 			std::cin >> add;
-			if (add<80) {
+			if (add < 80) {
 				std::cout << "Add more water:";
 				std::cin >> add;
-			}			
-				AddWater(add);
-			
-		
+			}
+			AddWater(add);
+
+
 		}
 	}
 	if (m_curSugar <= m_sugarLevel.m_low) {
@@ -77,14 +77,14 @@ bool CoffeeMachine::MakeDrink() {
 	std::string name;
 	int num;
 	for (int i = 1; i <= m_recipe.GetSize(); ++i) {
-		std::cout << i <<". " << m_recipe.GetName(i) << std::endl;
-	}	
+		std::cout << i << ". " << m_recipe.GetName(i) << std::endl;
+	}
 	std::cin >> num;
 	if (num > m_recipe.GetSize()) {
 		throw std::runtime_error("Sorry.Incorrect input");
 	}
 
-  name = m_recipe.GetName(num);
+	name = m_recipe.GetName(num);
 
 	const Recipe& curRecipe = m_recipe.GetRecipe(name);
 	bool res = ChekIngredientLowLvl(curRecipe.water, curRecipe.sugar, curRecipe.milk, curRecipe.coffee);
@@ -93,7 +93,7 @@ bool CoffeeMachine::MakeDrink() {
 		m_curSugar -= curRecipe.sugar;
 		m_curMilk -= curRecipe.milk;
 		m_curValCoffee -= curRecipe.coffee;
-		std::cout << "Make '" << curRecipe.name<< "', done\n";
+		std::cout << "Make '" << curRecipe.name << "', done\n";
 	}
 	return res;
 }
@@ -121,6 +121,9 @@ void CoffeeMachine::SetNewRecipe() {
 	std::cin >> milk;
 	m_recipe.Set(name, water, sugar, coffee, t, time, milk);
 }
+/*void CoffeeMachine::Delete() {
+	m_recipe.Del(1);
+}*/
 int AddIngredient(int volumeToAdd, int& curIngridientVolume, int max) {
 	int res = 0;
 	curIngridientVolume += volumeToAdd;

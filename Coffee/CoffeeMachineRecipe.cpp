@@ -15,22 +15,26 @@ Recipe CoffeeMachineRecipe::GetRecipe(const std::string& name) const {
 	}
 	throw std::runtime_error(name);
 }
-std::string& CoffeeMachineRecipe::GetName(int num){
-	
-			return m_recipes[num-1].name;
-	
+std::string& CoffeeMachineRecipe::GetName(int num) {
+
+	return m_recipes[num - 1].name;
+
 }
 size_t CoffeeMachineRecipe::GetSize() {
 
 	return m_recipes.size();
 
 }
-	void CoffeeMachineRecipe::Set(std::string& name, int water, int sugar, int coffee, int t, int time, int milk)
+void CoffeeMachineRecipe::Set(std::string& name, int water, int sugar, int coffee, int t, int time, int milk)
 {
-		m_recipes.push_back(Recipe{ name,water,sugar, coffee,t, time, milk });
-		std::cout << "Set recipe done.\n";
-		
+	m_recipes.push_back(Recipe{ name,water,sugar, coffee,t, time, milk });
+	std::cout << "Set recipe done.\n";
+
 }
+/*void CoffeeMachineRecipe::Del(int toDel) {
+
+	m_recipes.pop_back();
+}*/
 Recipe CoffeeMachineRecipe::GetEspressoRecipe() const {
 	Recipe espresso;
 	espresso.name = "Espresso";
