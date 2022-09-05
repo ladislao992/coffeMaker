@@ -6,7 +6,7 @@ int main() {
 		//enter start val of ingredients:water,sugar,milk,coffee
 		CoffeeMachine redmond(1000, 800, 50, 400);
 		while (true) {
-			std::cout << "Select operation between:\n 1.Make drink.\n 2.Set manual recipe. ";
+			std::cout << "Select operation between:\n 1.Make drink.\n 2.Set manual recipe.\n 3.Remove recipe. "<<std::endl;
 			int operation;
 			std::cin >> operation;
 			switch (operation) {
@@ -17,8 +17,8 @@ int main() {
 			case 2:
 				redmond.SetNewRecipe();
 				break;
-			/*case 3:
-				redmond.Delete();*/
+			case 3:
+				redmond.DeleteRecipe();
 			default:
 				break;
 			}

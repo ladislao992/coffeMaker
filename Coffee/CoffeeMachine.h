@@ -18,7 +18,7 @@ public:
 	int AddMilk(int)override;
 	int AddCoffee(int)override;
 	void SetNewRecipe()override;
-	//void Delete();
+	void DeleteRecipe()override;
 private:
 	CoffeeMachineRecipe m_recipe;
 

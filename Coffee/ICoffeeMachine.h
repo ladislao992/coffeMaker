@@ -11,5 +11,6 @@ public:
 	virtual int AddMilk(int) = 0;
 	virtual int AddCoffee(int) = 0;
 	virtual void SetNewRecipe() = 0;
+	virtual void DeleteRecipe() = 0;
 	virtual ~ICoffeeMachine() = default;
 };

@@ -31,10 +31,14 @@ void CoffeeMachineRecipe::Set(std::string& name, int water, int sugar, int coffe
 	std::cout << "Set recipe done.\n";
 
 }
-/*void CoffeeMachineRecipe::Del(int toDel) {
-
-	m_recipes.pop_back();
-}*/
+void CoffeeMachineRecipe::DelRecipe(int numToDel){
+	std::string tmp = m_recipes[numToDel-1].name;
+	for (int i = numToDel; i < m_recipes.size(); ++i) {
+		m_recipes.at(i-1) = m_recipes.at(i);
+	}
+	std::cout<< "Deleted:"<<numToDel<<". " << tmp<<std::endl;
+	m_recipes.resize(m_recipes.size()-1);
+}
 Recipe CoffeeMachineRecipe::GetEspressoRecipe() const {
 	Recipe espresso;
 	espresso.name = "Espresso";

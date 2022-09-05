@@ -121,9 +121,18 @@ void CoffeeMachine::SetNewRecipe() {
 	std::cin >> milk;
 	m_recipe.Set(name, water, sugar, coffee, t, time, milk);
 }
-/*void CoffeeMachine::Delete() {
-	m_recipe.Del(1);
-}*/
+void CoffeeMachine::DeleteRecipe() {
+	int num;
+	for (int i = 1; i <= m_recipe.GetSize(); ++i) {
+		std::cout << i << ". " << m_recipe.GetName(i) << std::endl;
+	}
+	std::cin >> num;
+	if (num > m_recipe.GetSize()) {
+		throw std::runtime_error("Sorry.Incorrect input");
+	}
+
+	m_recipe.DelRecipe(num);
+}
 int AddIngredient(int volumeToAdd, int& curIngridientVolume, int max) {
 	int res = 0;
 	curIngridientVolume += volumeToAdd;

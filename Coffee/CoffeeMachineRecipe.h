@@ -15,7 +15,7 @@ public:
 	Recipe GetRecipe(const std::string& name) const override;
 	std::string& GetName(int num)override;
 	size_t GetSize()override;
-	//void Del(int);
+	void DelRecipe(int numToDel)override;
 	void Set(std::string& name, int water, int sugar, int coffee, int t, int time, int milk)override;
 
 private:
